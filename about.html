@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Blog</title>
+		
+		<meta charset="UTF-8">
+		<meta name="author" content="Lukáš Babečka">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style-about.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	</head>
+	
+	
+	<body onresize="showNavbar()">
+		<script src="script.js"></script>
+
+		<div id="header">
+			<h1 id="web-title">blog</h1>
+
+			<a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span class="fas fa-bars"></span></a>
+
+			<div id="navbar">
+				<ul>	
+					<li>
+						<a href="index.html">
+							<span class="fas fa-home"></span>
+							Domov
+						</a>
+					</li>
+					
+					<li>
+						<a href="about.html" id="current-page">
+							<span class="fas fa-question"></span>
+							O mne
+						</a>
+					</li>
+					
+					<li>
+						<a href="login.html">
+							<span class="fas fa-user"></span>
+							Prihlásiť sa
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="separator"></div>
+		<div id="banner"></div>
+
+		<div id="content">
+			<div id="content-side">
+				<section>
+					<h3>Lorem</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+				</section>	
+				
+				<section>
+					<h3>Ipsum</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+					
+				</section>
+			</div>
+			
+			<div id="content-main">
+				<div class="article">
+					<h1>O mne</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<a href="http://www.facebook.com/"><span class="fab fa-facebook"></span></a>
+			<a href="http://www.instagram.com/"><span class="fab fa-instagram"></span></a>
+			<a href="http://www.youtube.com/"><span class="fab fa-youtube"></span></a>		
+		</div>
+	</body>
+</html>
