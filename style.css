@@ -133,6 +133,8 @@ body
 
 #content-main .article h1
 {
+	padding-top: 15px;
+
 	font-family: 'font_title';
 	text-decoration: underline;
 	text-align: center;
@@ -172,6 +174,11 @@ body
 	font-family: 'font_article';
 	font-size: 14px;
 	text-align: justify;
+}
+
+#content-main .article a:link, a:visited
+{
+	color: #000000;
 }
 
 #content-side section
