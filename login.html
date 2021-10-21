@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Blog</title>
+		
+		<meta charset="UTF-8">
+		<meta name="author" content="Lukáš Babečka">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	</head>
+	
+	
+	<body onresize="showNavbar()">
+		<script src="script.js"></script>
+
+		<div id="header">
+			<h1 id="web-title">blog</h1>
+
+			<a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span class="fas fa-bars"></span></a>
+
+			<div id="navbar">
+				<ul>	
+					<li>
+						<a href="index.html">
+							<span class="fas fa-home"></span>
+							Domov
+						</a>
+					</li>
+					
+					<li>
+						<a href="about.html">
+							<span class="fas fa-question"></span>
+							O mne
+						</a>
+					</li>
+					
+					<li>
+						<a href="login.html" id="current-page">
+							<span class="fas fa-user"></span>
+							Prihlásiť sa
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="separator"></div>
+		<div id="banner"></div>
+
+		<div id="content">
+			<div id="content-main">
+				<div class="article">
+					<img src="images/mountain.jpg" alt="Obrázok">
+					<p class="publish-date">17. október 2021 | <a href="#">0 komentárov <span class="fas fa-comments"></span></a></p>
+					<h1>Lorem ipsum</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+				</div>
+
+				<div class="article">
+					<img src="images/landscape.jpg" alt="Obrázok">
+					<p class="publish-date">14. október 2021 | <a href="#">0 komentárov <span class="fas fa-comments"></span></a></p>
+					<h1>Lorem ipsum</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+				</div>
+
+				<div class="article">
+					<img src="images/lake.jpg" alt="Obrázok">
+					<p class="publish-date">1. október 2021 | <a href="#">0 komentárov <span class="fas fa-comments"></span></a></p>
+					<h1>Lorem ipsum</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis at augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum libero sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a est felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at accumsan est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor blandit nec.</p>
+				</div>
+			</div>
+
+			<div id="content-side">
+				<section>
+					<img src="images/avatar.png" alt="Obrázok" height="75" width="75">
+					<h3>Kto som</h3>
+					<p>Ahoj, ja som Lukáš a vítam ťa na tejto stránke!<br><br>Táto stránka slúži ako môj osobný blog, kde s vami zdieľam moje myšlienky alebo názory, ale aj mnoho iných vecí.<br><br><a href="about.html">Prečítať si viac..</a></p>
+				</section>	
+				
+				<section>
+					<h3>Kontakt</h3>
+					<p>Ak máte na mňa nejakú otázku alebo vás niečo zaujíma, stačí, keď vyplníte následujúci formulár na odoslanie správy na môj email</p>
+					<form action="result.php" method="post">
+
+					
+						<input name="mail-sender" placeholder="Váš e-mail" type="email" required>
+						<textarea name="mail-message" placeholder="Vaša správa" rows=3 required></textarea><br>
+						<input type="submit" value="Odoslať správu" name="submit-mail">
+					</form>
+				</section>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<a href="http://www.facebook.com/"><span class="fab fa-facebook"></span></a>
+			<a href="http://www.instagram.com/"><span class="fab fa-instagram"></span></a>
+			<a href="http://www.youtube.com/"><span class="fab fa-youtube"></span></a>		
+		</div>
+	</body>
+</html>
