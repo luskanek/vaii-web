@@ -1,3 +1,33 @@
+<?php
+	include("php/config.php");
+
+	if ($connection) 
+	{
+		session_start();
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") 
+		{
+			$mail = mysqli_real_escape_string($connection, $_POST["login-input-mail"]);
+			$pass = mysqli_real_escape_string($connection, $_POST["login-input-pass"]);
+
+			$query = "SELECT * FROM users WHERE login = '$mail' AND password = '$pass'";
+			$result = mysqli_query($connection, $query);
+
+			if ($result)
+			{
+				if (mysqli_num_rows($result) == 1)
+				{
+					$_SESSION["active_user"] = $mail;
+					
+					echo "<script language='javascript'>alert('wohou');</script>";
+				}
+				else
+					echo "<script language='javascript'>alert('chyba');</script>";
+			}
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +41,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="icon" href="resources/favicon.ico" type="image/ico">
 </head>
 
 
@@ -26,21 +57,21 @@
 		<div id="navbar">
 			<ul>
 				<li>
-					<a href="index.html">
+					<a href="index.php">
 						<span class="fas fa-home"></span>
 						Domov
 					</a>
 				</li>
 
 				<li>
-					<a href="about.html">
+					<a href="about.php">
 						<span class="fas fa-question"></span>
 						O mne
 					</a>
 				</li>
 
 				<li>
-					<a href="login.html" id="current-page">
+					<a href="login.php" id="current-page">
 						<span class="fas fa-user"></span>
 						Účet
 					</a>
@@ -56,11 +87,11 @@
 		<div id="content-main">
 			<div class="article">
 				<h3 style="text-align: left; padding-left: 30px;">Prihlásenie</h3>
-				<form>
+				<form method="post">
 					<p>E-mail</p>
-					<input name="input-username" placeholder="Váš e-mail" type="email" required>
+					<input name="login-input-mail" placeholder="Váš e-mail" type="email" required>
 					<p>Heslo</p>
-					<input name="input-password" placeholder="Vaše prihlasovacie heslo" type="password" required>
+					<input name="login-input-pass" placeholder="Vaše prihlasovacie heslo" type="password" required>
 					<input type="submit" value="Prihlásiť sa" name="submit-login">
 				</form>
 			</div>

@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="style-about.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="icon" href="resources/favicon.ico" type="image/ico">
 </head>
 
 
@@ -27,21 +28,21 @@
 		<div id="navbar">
 			<ul>
 				<li>
-					<a href="index.html">
+					<a href="index.php">
 						<span class="fas fa-home"></span>
 						Domov
 					</a>
 				</li>
 
 				<li>
-					<a href="about.html" id="current-page">
+					<a href="about.php" id="current-page">
 						<span class="fas fa-question"></span>
 						O mne
 					</a>
 				</li>
 
 				<li>
-					<a href="login.html">
+					<a href="login.php">
 						<span class="fas fa-user"></span>
 						Účet
 					</a>

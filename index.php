@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="icon" href="resources/favicon.ico" type="image/ico">
 </head>
 
 
@@ -26,21 +27,21 @@
 		<div id="navbar">
 			<ul>
 				<li>
-					<a href="index.html" id="current-page">
+					<a href="index.php" id="current-page">
 						<span class="fas fa-home"></span>
 						Domov
 					</a>
 				</li>
 
 				<li>
-					<a href="about.html">
+					<a href="about.php">
 						<span class="fas fa-question"></span>
 						O mne
 					</a>
 				</li>
 
 				<li>
-					<a href="login.html">
+					<a href="login.php">
 						<span class="fas fa-user"></span>
 						Účet
 					</a>
@@ -54,6 +55,33 @@
 
 	<div id="content">
 		<div id="content-main">
+			<?php 
+				include("php/config.php");
+
+				if ($connection)
+				{
+					$query = "SELECT title, date, content FROM articles ORDER BY date DESC";
+					$result = mysqli_query($connection, $query);
+
+					if ($result)
+					{
+						if (mysqli_num_rows($result) > 0)
+						{
+							while ($row = mysqli_fetch_assoc($result))
+							{
+								?>
+									<div class="article">
+										<h1><?php echo htmlspecialchars($row["title"], ENT_COMPAT, "ISO-8859-15");?></h2>
+										<p class="publish-date"><?php echo strftime("%d. %B %Y", strtotime($row["date"]));?></p>
+										<p><?php echo $row["content"];?></p>
+									</div>
+								<?php
+							}
+						}
+					}
+				}
+			?>
+
 			<div class="article">
 				<img src="images/mountain.jpg" alt="Obrázok">
 				<p class="publish-date">17. október 2021 | <a href="#">0 komentárov <span
@@ -78,27 +106,6 @@
 				<img src="images/landscape.jpg" alt="Obrázok">
 				<p class="publish-date">14. október 2021 | <a href="#">0 komentárov <span
 							class="fas fa-comments"></span></a></p>
-				<h1>Lorem ipsum</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat
-					tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis
-					at
-					augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc
-					quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum
-					libero
-					sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a
-					est
-					felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at
-					accumsan
-					est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor
-					blandit
-					nec.</p>
-			</div>
-
-			<div class="article">
-				<img src="images/lake.jpg" alt="Obrázok">
-				<p class="publish-date">1. október 2021 | <a href="#">0 komentárov <span
-							class="fas fa-comments"></span></a>
-				</p>
 				<h1>Lorem ipsum</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat
 					tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis
