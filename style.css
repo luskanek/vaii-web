@@ -155,6 +155,8 @@ body
 
 #content-main .article .publish-date
 {
+	padding: 15px 0px 0px 0px;
+
 	font-family: 'font_article';
 	font-size: small;
 	text-align: center;
@@ -528,7 +530,7 @@ body
 	{
 		border-radius: 0;
 	}
-	
+
 	#content-side section
 	{
 		margin: 0;

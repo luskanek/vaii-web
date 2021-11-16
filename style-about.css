@@ -15,3 +15,21 @@
 {
     margin: 0px 0px 20px 0px;
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1024px)
+{
+    #content-side
+    {
+        display: block;
+        padding-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    #content-side
+    {
+        display: block;
+        padding-top: 15px;
+    }
+}
