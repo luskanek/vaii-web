@@ -1,157 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Inzercia</title>
 
-<head>
-	<title>Blog</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Lukáš Babečka">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta charset="UTF-8">
-	<meta name="author" content="Lukáš Babečka">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="icon" href="resources/favicon.ico" type="image/ico">
+    </head>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<link rel="icon" href="resources/favicon.ico" type="image/ico">
-</head>
+    <body onresize="showNavbar()">
+        <script src="script.js"></script>
 
+        <div id="header">
+            <h1 id="web-title">Inzercia</h1>
 
-<body onresize="showNavbar()">
-	<script src="script.js"></script>
+            <a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span class="fas fa-bars"></span></a>
 
-	<div id="header">
-		<h1 id="web-title">blog</h1>
+            <div id="navbar">
+                <ul>
+                    <li>
+                        <a href="index.php" id="current-page">
+                        <i class="fas fa-home"></i>
+                        Inzeráty
+                        </a>
+                    </li>
 
-		<a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span
-				class="fas fa-bars"></span></a>
+                    <li>
+                        <a href="login.php">
+                        <i class="fas fa-user"></i>
+                        Prihlásiť sa
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-		<div id="navbar">
-			<ul>
-				<li>
-					<a href="index.php" id="current-page">
-						<span class="fas fa-home"></span>
-						Domov
-					</a>
-				</li>
+        <div id="wrapper-search">
+            <form action="search_item.php" method="post">
+                <input name="search-item" placeholder="Kúpim.." type="text">
+                <button type="submit"><span class="fas fa-search"></span></button>
+            </form>
+        </div>
 
-				<li>
-					<a href="about.php">
-						<span class="fas fa-question"></span>
-						O mne
-					</a>
-				</li>
+        <div id="wrapper-banner">
+            <h3>Prezerať inzeráty podľa kategórie</h3>
+        </div>
 
-				<li>
-					<a href="login.php">
-						<span class="fas fa-user"></span>
-						Účet
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div id="content">
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-car-alt"></i>
+                <h3>Auto</h3>
+                <p>Škoda, Audi, ..</p>
+                </a>
+            </div>
 
-	<div class="separator"></div>
-	<div id="banner"></div>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-couch"></i>
+                <h3>Nábytok</h3>
+                <p>Skrine, postele, ..</p>
+                </a>
+            </div>
 
-	<div id="content">
-		<div id="content-main">
-			<?php 
-				include("php/config.php");
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-city"></i>
+                <h3>Reality</h3>
+                <p>Byty, domy, ..</p>
+                </a>
+            </div>
 
-				if ($connection)
-				{
-					$query = "SELECT title, date, content FROM articles ORDER BY date DESC";
-					$result = mysqli_query($connection, $query);
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-tractor"></i>
+                <h3>Stroje</h3>
+                <p>Motory, diely, ..</p>
+                </a>
+            </div>
 
-					if ($result)
-					{
-						if (mysqli_num_rows($result) > 0)
-						{
-							while ($row = mysqli_fetch_assoc($result))
-							{
-								?>
-									<div class="article">
-										<h1><?php echo htmlspecialchars($row["title"], ENT_COMPAT, "ISO-8859-15");?></h2>
-										<p class="publish-date"><?php echo strftime("%d. %B %Y", strtotime($row["date"]));?></p>
-										<p><?php echo $row["content"];?></p>
-									</div>
-								<?php
-							}
-						}
-					}
-				}
-			?>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobily</h3>
+                <p>Samsung, Apple, ..</p>
+                </a>
+            </div>
 
-			<div class="article">
-				<img src="images/mountain.jpg" alt="Obrázok">
-				<p class="publish-date">17. október 2021 | <a href="#">0 komentárov <span
-							class="fas fa-comments"></span></a></p>
-				<h1>Lorem ipsum</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat
-					tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis
-					at
-					augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc
-					quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum
-					libero
-					sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a
-					est
-					felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at
-					accumsan
-					est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor
-					blandit
-					nec.</p>
-			</div>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-desktop"></i>
+                <h3>Počítače</h3>
+                <p>Hry, skrine, ..</p>
+                </a>
+            </div>
 
-			<div class="article">
-				<img src="images/landscape.jpg" alt="Obrázok">
-				<p class="publish-date">14. október 2021 | <a href="#">0 komentárov <span
-							class="fas fa-comments"></span></a></p>
-				<h1>Lorem ipsum</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo tempus urna, ac volutpat
-					tortor malesuada nec. Mauris massa elit, pharetra at nibh vel, cursus porttitor ex. Aenean iaculis
-					at
-					augue id cursus. Pellentesque imperdiet justo purus, quis pulvinar tellus fringilla in. Sed vel nunc
-					quam. Donec commodo nec ipsum eu feugiat. In hac habitasse platea dictumst. Suspendisse interdum
-					libero
-					sit amet mollis maximus. Aenean laoreet risus orci, nec efficitur ante faucibus non. Vestibulum a
-					est
-					felis. Suspendisse potenti. Fusce ut suscipit magna. Duis malesuada eros id elit facilisis, at
-					accumsan
-					est maximus. Etiam ut tortor purus. Suspendisse malesuada scelerisque tellus, in ornare dolor
-					blandit
-					nec.</p>
-			</div>
-		</div>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Motocykle</h3>
+                <p>Enduro, skútre, ..</p>
+                </a>
+            </div>
 
-		<div id="content-side">
-			<section>
-				<img src="images/avatar.png" alt="Obrázok" height="75" width="75">
-				<h3>Kto som</h3>
-				<p>Ahoj, ja som Lukáš a vítam ťa na tejto stránke!<br><br>Táto stránka slúži ako môj osobný blog, kde s
-					vami
-					zdieľam moje myšlienky alebo názory, ale aj mnoho iných vecí.<br><br><a href="about.html">Prečítať
-						si
-						viac..</a></p>
-			</section>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-bolt"></i>
+                <h3>Elektronika</h3>
+                <p>Práčky, sporáky, ..</p>
+                </a>
+            </div>
 
-			<section>
-				<h3>Kontakt</h3>
-				<p>Ak máte na mňa nejakú otázku alebo vás niečo zaujíma, stačí, keď vyplníte následujúci formulár na
-					odoslanie správy na môj email</p>
-				<form action="result.php" method="post">
-					<input name="mail-sender" placeholder="Váš e-mail" type="email" required>
-					<textarea name="mail-message" placeholder="Vaša správa" rows=3 required></textarea><br>
-					<input type="submit" value="Odoslať správu" name="submit-mail">
-				</form>
-			</section>
-		</div>
+            <div class="category">'
+                <a href="#">
+                <i class="fas fa-bicycle"></i>
+                <h3>Šport</h3>
+                <p>Bicykle, lyže, ..</p>
+                </a>
+            </div>
 
-		<div id="footer">
-			<a href="http://www.facebook.com/"><span class="fab fa-facebook"></span></a>
-			<a href="http://www.instagram.com/"><span class="fab fa-instagram"></span></a>
-			<a href="http://www.youtube.com/"><span class="fab fa-youtube"></span></a>
-		</div>
-	</div>
-</body>
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-tshirt"></i>
+                <h3>Oblečenie</h3>
+                <p>Šaty, tričká, ..</p>
+                </a>
+            </div>
 
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-drum"></i>
+                <h3>Hudba</h3>
+                <p>Gitary, bicie, ..</p>
+                </a>
+            </div>
+
+            <div class="category">
+                <a href="#">
+                <i class="fas fa-book"></i>
+                <h3>Knihy</h3>
+                <p>Poézia, próza, ..</p>
+                </a>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="info">
+                <div class="col">
+                    <h2>Informácie</h2>
+                    <a href="#">Podmienky inzercie</a>
+                    <a href="#">Reklama</a>
+                    <a href="#">Mobilná aplikácia</a>
+                    <a href="#">GDPR</a>
+                </div>
+
+                <div class="col">
+                    <h2>O webstránke</h2>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed neque iaculis, mattis tortor sit amet, laoreet leo. Fusce rutrum, lorem a pharetra cursus, sapien lorem congue arcu, sit amet porta libero lacus nec lacus. Sed tincidunt est ac lorem hendrerit, ut sodales lorem maximus. Ut quis posuere elit
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Napíšte nám</h2>
+                    <form>
+                        <input name="contact-mail" type="email" placeholder="Váš e-mail" required>
+                        <textarea placeholder="Vaša správa"></textarea>
+                        <input type="submit" value="Odoslať">
+                    </form>
+                </div>
+            </div>
+
+            <div id="socials">
+                <a href="http://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="http://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="http://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </body>
 </html>
