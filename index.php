@@ -187,12 +187,12 @@
 
             <div id="items">
                 <?php
-                    if (isset($_GET["category"])) {
+                    if (isset($_GET['category'])) {
                         echo "<script>hideCategories();</script>";
                                 
-                        $cat = $_GET["category"];
+                        $cat = $_GET['category'];
 
-                        $query = "SELECT * FROM items WHERE category='$cat'";
+                        $query = "SELECT * FROM items WHERE category='$cat' ORDER BY id DESC";
                         $result = mysqli_query($connection, $query);
                                 
                         if ($result) {
@@ -201,9 +201,9 @@
                                     ?>
                                         <div class="item">
                                             <?php
-                                                $images = explode(";", $row["files"]);
+                                                $images = explode(";", $row['files']);
                                                
-                                                $user_id = $row["author"];
+                                                $user_id = $row['author'];
                                                 $query = "SELECT * FROM users WHERE id='$user_id'";
                                                 $result2 = mysqli_query($connection, $query);
                                                 $user = mysqli_fetch_assoc($result2);
@@ -214,9 +214,9 @@
                                                     }
                                                 //}
                                             ?>
-                                            <h2><?php echo htmlspecialchars($row["title"], ENT_COMPAT, "ISO-8859-15");?></h2>
-                                            <p><?php echo $user["first_name"] . " " . $user["last_name"] . " | " . $user["username"] ?></p>
-                                            <p class="desc"><?php echo $row["description"];?></p>
+                                            <h2><?php echo htmlspecialchars($row['title'], ENT_COMPAT, "ISO-8859-15");?></h2>
+                                            <p><?php echo $user['first_name'] . " " . $user['last_name'] . " | " . $user['username'] . " | " . $row['price'] . "€"?></p>
+                                            <p class="desc"><?php echo $row['description'];?></p>
                                         </div>
                                     <?php
                                 }
