@@ -17,6 +17,18 @@
 	margin: 20px 40px;
 }
 
+#content .section p
+{
+	display: none;
+	margin-bottom: 20px;
+	padding: 15px;
+
+	background-color: #ff9f9f;
+	border-radius: 5px;
+
+	text-align: center;
+}
+
 #content .section form input[type="email"], #content .section form input[type="password"], #content .section form input[type="text"]
 {
 	margin: 5px 0px;

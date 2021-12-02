@@ -69,6 +69,14 @@
                 ?>
 
                 <form action="php/register.php" method="post">
+                    <?php
+                        if (isset($_SESSION["error-message"])) {
+                            $msg = $_SESSION["error-message"];
+                            echo '<p id="info-message">' . $msg . '</p>';
+                            echo '<script>appendWarning();</script>';
+                            unset($_SESSION["error-message"]);
+                        }
+                    ?>
 					<h4>Nový používateľ</h4>
                     <input name="input-register-fname" type="text" placeholder="Meno" style="float:left" required>
                     <input name="input-register-lname" type="text" placeholder="Priezvisko" style="float:right" required>
@@ -84,10 +92,18 @@
                 ?>
 
                 <form action="php/login.php" method="post">
+                    <?php
+                        if (isset($_SESSION["error-message"])) {
+                            $msg = $_SESSION["error-message"];
+                            echo '<p id="info-message">' . $msg . '</p>';
+                            echo '<script>appendWarning();</script>';
+                            unset($_SESSION["error-message"]);
+                        }
+                    ?>
 					<h4>Vitajte späť</h4>
 					<input name="input-login-mail" type="email" placeholder="Váš prihlasovací email" style="width: 100%" required>
 					<input name="input-login-pass" type="password" placeholder="Vaše heslo" style="width: 100%" required>
-					<a href="?new_user">Nový používateľ</a>
+					<a href="?new_user">Vytvoriť nový účet</a>
 					<input name="input-login-submit" type="submit" value="Prihlásiť">
 				</form>
 
