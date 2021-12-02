@@ -22,6 +22,7 @@
 
                     if (mysqli_query($connection, $query)) {
                         $_SESSION["user_active"] = true;
+                        $_SESSION["user_id"] = $row["id"];
                         $_SESSION["user_mail"] = $username;
                         $_SESSION["user_first_name"] = $first_name;
                         $_SESSION["user_last_name"] = $last_name;

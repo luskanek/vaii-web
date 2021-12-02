@@ -20,6 +20,7 @@
 
                 if (password_verify($password, $row["password"])) {
                     $_SESSION["user_active"] = true;
+                    $_SESSION["user_id"] = $row["id"];
                     $_SESSION["user_mail"] = $username;
                     $_SESSION["user_first_name"] = $row["first_name"];
                     $_SESSION["user_last_name"] = $row["last_name"];
