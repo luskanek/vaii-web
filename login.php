@@ -92,11 +92,11 @@
                 ?>
 
                 <form action="php/login.php" method="post">
+                    <p id="info-message"></p>
                     <?php
                         if (isset($_SESSION["error-message"])) {
                             $msg = $_SESSION["error-message"];
-                            echo '<p id="info-message">' . $msg . '</p>';
-                            echo '<script>appendWarning();</script>';
+                            ?><script>displayMessage("<?=$msg?>");</script><?php
                             unset($_SESSION["error-message"]);
                         }
                     ?>
