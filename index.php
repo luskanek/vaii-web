@@ -202,15 +202,21 @@
                                         <div class="item">
                                             <?php
                                                 $images = explode(";", $row["files"]);
+                                               
+                                                $user_id = $row["author"];
+                                                $query = "SELECT * FROM users WHERE id='$user_id'";
+                                                $result2 = mysqli_query($connection, $query);
+                                                $user = mysqli_fetch_assoc($result2);
 
-                                                for ($i = 0; $i < sizeof($images); $i++) {
-                                                    if (!empty($images[$i])) {
-                                                        ?><img src="uploads/<?php echo $images[$i]?>"><?php
+                                                //for ($i = 0; $i < sizeof($images); $i++) {
+                                                    if (!empty($images)) {
+                                                        ?><img src="uploads/<?php echo $images[0]?>"><?php
                                                     }
-                                                }
+                                                //}
                                             ?>
                                             <h2><?php echo htmlspecialchars($row["title"], ENT_COMPAT, "ISO-8859-15");?></h2>
-                                            <p><?php echo $row["description"];?></p>
+                                            <p><?php echo $user["first_name"] . " " . $user["last_name"] . " | " . $user["username"] ?></p>
+                                            <p class="desc"><?php echo $row["description"];?></p>
                                         </div>
                                     <?php
                                 }
@@ -221,7 +227,6 @@
                                         <i class="fas fa-box-open"></i>
                                         <h3>Táto kategória neobsahuje inzeráty..</h3>
                                     </div>
-
                                 <?php
                             }
                         }

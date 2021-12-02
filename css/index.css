@@ -91,25 +91,41 @@
 
 #content #items .item
 {
+	transition: 0.4s;
+
 	overflow: hidden;
 
 	padding: 30px;
+	margin-bottom: 15px;
 
 	border-radius: 5px;
 	background-color: #ffffff;
 }
 
+#content #items .item:hover
+{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
 #content #items .item img
 {
 	float: left;
+	margin-right: 20px;
 
 	height: 200px;
 	width: 200px;
+
+	border: 1px solid #000000; 
 }
 
-#content #items .item h2, #content #sections .item p
+#content #items .item h2, #content #items .item p
 {
 	display: block;
+}
+
+#content #items .item .desc
+{
+	margin-top: 15px;
 }
 
 #content #items #empty-category
