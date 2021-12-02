@@ -1,0 +1,101 @@
+#content
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#content .section
+{
+    padding: 50px;
+
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+
+#content .section p
+{
+	display: none;
+	margin-bottom: 20px;
+	padding: 15px;
+
+	background-color: #ff9f9f;
+	border-radius: 5px;
+
+	text-align: center;
+}
+
+#content .section label
+{
+    display: block;
+
+    font-weight: bold;
+}
+
+#content .section label:not(:first-child)
+{
+    padding: 10px 0px 10px 0px;
+}
+#content .section form select
+{
+    padding: 10px;
+    width: 50%;
+
+    outline: none;
+}
+
+#content .section form input[type="text"]
+{
+    padding: 15px;
+    width: 100%;
+
+    border: 0;
+    border-bottom: 2px solid #000000;
+    outline: none;
+}
+
+#content .section form textarea
+{
+    height: 200px;
+
+    background-color: #ffffff;
+    border: 0;
+    border-bottom: 2px solid #000000;
+    outline: none;
+
+    color: #000000;
+
+    resize: none;
+}
+
+#content .section form input[type="number"]
+{
+    padding: 15px;
+    width: 60%;
+
+    border: 0;
+    border-bottom: 2px solid #000000;
+    outline: none;
+}
+
+#content .section form input[type="submit"]
+{
+    margin-left: 15px;
+    padding: 15px;
+    width: 36%;
+
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+
+#content .section input[type="file"]
+{
+    display: block;
+}
+
+#content .section img
+{
+    margin-top: 5px;
+    margin-right: 10px;
+
+    border: 1px solid #000000;
+}

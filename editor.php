@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/new.css">
+        <link rel="stylesheet" type="text/css" href="css/editor.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="icon" href="resources/favicon.ico" type="image/ico">
     </head>
@@ -96,11 +96,12 @@
                 ?>
 
                 <form id="upload-form" action="php/add.php" method="post" enctype="multipart/form-data">
+                    <p id="info-message"></p>
                     <label for="input-new-title">Názov inzerátu</label>
                     <input name="input-new-title" type="text" maxlength="255" placeholder="Zadajte nádpis inzerátu" value="<?php echo $title ?>" required>
                     <label for="select-new-category">Kategória</label>
                     <select name="select-new-category" style="display: block" required>
-                        <option value="none" selected hidden>Vyberte kategóriu</option>
+                        <option value="" selected hidden>Vyberte kategóriu</option>
                         <option value="auto">Auto</option>
                         <option value="furniture">Nábytok</option>
                         <option value="living">Reality</option>
@@ -125,7 +126,7 @@
 
             <div id="wrapper-images" class="section">
                 <label for="file">Obrázky</label>
-                <input name="files[]" id="input-new-images" type="file" form="upload-form" multiple>
+                <input name="files[]" id="input-new-images" type="file" form="upload-form" multiple required>
             </div>
         </div>
 
