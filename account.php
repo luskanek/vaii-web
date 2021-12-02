@@ -93,8 +93,8 @@
             <div class="section">
                 <h2>Moje inzeráty</h2>
                     <?php
-                        $user = $_SESSION["user_mail"];
-                        $query = "SELECT * FROM items WHERE author='$user'";
+                        $id = $_SESSION["user_id"];
+                        $query = "SELECT * FROM items WHERE author='$id'";
                         $result = mysqli_query($connection, $query);
                                         
                         if ($result) {
