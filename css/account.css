@@ -1,0 +1,56 @@
+#content
+{
+	display: grid;
+	grid-template-columns: 40% 60%;
+	gap: 10px;
+}
+
+#content .section
+{
+	padding: 30px;
+
+	border-radius: 15px;
+	background-color: #ffffff;
+}
+
+#content .section #account-details
+{
+    float: left;
+}
+
+#content .section #link-logout
+{
+    transition: 0.3s;
+
+    float: right;
+    padding: 10px;
+
+    border: 1px solid #333333;
+
+    text-decoration: none;
+    color: #000000;
+}
+
+#content .section #link-logout:hover
+{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#content .section .item 
+{
+    clear: both;
+    padding-top: 15px;
+}
+
+#content .section .item a:link, #content .section .item a:visited
+{
+    float: left;
+
+    color: #000000;
+}
+
+#content .section .item .icons
+{
+    float: right;
+}

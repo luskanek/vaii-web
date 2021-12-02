@@ -1,0 +1,59 @@
+#content
+{
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+#content .section
+{
+	padding: 15px;
+
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+
+#content .section form
+{
+	margin: 20px 40px;
+}
+
+#content .section form input[type="email"], #content .section form input[type="password"], #content .section form input[type="text"]
+{
+	margin: 5px 0px;
+	padding: 20px 20px;
+
+	background-color: #ffffff;
+	border: 0;
+	border-bottom: 2px solid #333333;
+	outline: none;
+}
+
+#content .section form a:link, #content .section form a:visited
+{
+	float: left;
+
+	margin-top: 30px;
+
+	color: #333333;
+}
+
+#content .section form input[type="submit"]
+{
+	transition: 0.3s;
+
+	float: right;
+
+	margin-top: 25px;
+	padding: 10px;
+
+	background-color: #ffffff;
+	border: 1px solid #333333;
+
+	cursor: pointer;
+}
+
+#content .section form input[type="submit"]:hover
+{
+	background-color: #000000;
+	color: #ffffff;
+}

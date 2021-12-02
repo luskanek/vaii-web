@@ -1,0 +1,130 @@
+#content #categories
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	gap: 10px;
+}
+
+#content #items
+{
+	display: none;
+}
+
+#wrapper-search form
+{
+	position: absolute;
+	top: 45%;
+
+	width: 100%;
+}
+
+#wrapper-search form input
+{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#wrapper-search form input[type="text"]
+{
+	transition: 0.3s;
+
+	width: 35%;
+
+	padding: 15px 20px 15px 20px;
+
+	border: 1px solid #212121;
+	border-radius: 5px;
+
+	background-color: #212121;
+	color: #ffffff;
+}
+
+#wrapper-search form input:hover
+{
+	border: 1px solid #ffffff;
+}
+
+#wrapper-search form button[type="submit"]
+{
+	margin-left: -50px;
+	padding: 10px;
+
+	border: 0;
+
+	background-color: #212121;
+	color: #ffffff;
+
+	cursor: pointer;
+}
+
+#content #categories .section
+{
+	transition: 0.4s;
+	padding: 30px;
+
+	border-radius: 15px;
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#content #categories .section:hover
+{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#content #categories .section i
+{
+	padding-bottom: 10px;
+
+	font-size: 200%;
+}
+
+#content #categories .section a:link
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+#content #categories .section a:visited
+{
+	color: #000000;
+}
+
+#content #items .item
+{
+	overflow: hidden;
+
+	padding: 30px;
+
+	border-radius: 5px;
+	background-color: #ffffff;
+}
+
+#content #items .item img
+{
+	float: left;
+
+	height: 200px;
+	width: 200px;
+}
+
+#content #items .item h2, #content #sections .item p
+{
+	display: block;
+}
+
+#content #items #empty-category
+{
+	margin: 50px;
+
+	text-align: center;
+
+	color: #bbbbbb;
+}
+
+#content #items #empty-category i
+{
+	padding-top: 20px;
+	padding-bottom: 40px;
+
+	font-size: 250%;
+}
