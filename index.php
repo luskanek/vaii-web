@@ -79,10 +79,7 @@
         </div>
 
         <div id="wrapper-search">
-            <form action="search_section.php" method="post">
-                <input name="search-section" placeholder="Kúpim.." type="text">
-                <button type="submit"><span class="fas fa-search"></span></button>
-            </form>
+            
         </div>
 
         <div id="wrapper-banner">
