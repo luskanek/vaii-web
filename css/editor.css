@@ -79,12 +79,22 @@
 
 #content .section form input[type="submit"]
 {
+    transition: 0.4s;
+
     margin-left: 15px;
     padding: 15px;
     width: 36%;
 
     background-color: #ffffff;
     border: 1px solid #000000;
+
+    cursor: pointer;
+}
+
+#content .section form input[type="submit"]:hover
+{
+    background-color: #000000;
+    color: #ffffff;
 }
 
 #content .section input[type="file"]
