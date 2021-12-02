@@ -1,118 +1,134 @@
-<?php
-	include("php/config.php");
-
-	if ($connection) 
-	{
-		session_start();
-
-		if ($_SERVER["REQUEST_METHOD"] == "POST") 
-		{
-			$mail = mysqli_real_escape_string($connection, $_POST["login-input-mail"]);
-			$pass = mysqli_real_escape_string($connection, $_POST["login-input-pass"]);
-
-			$query = "SELECT * FROM users WHERE login = '$mail' AND password = '$pass'";
-			$result = mysqli_query($connection, $query);
-
-			if ($result)
-			{
-				if (mysqli_num_rows($result) == 1)
-				{
-					$_SESSION["active_user"] = $mail;
-					
-					echo "<script language='javascript'>alert('wohou');</script>";
-				}
-				else
-					echo "<script language='javascript'>alert('chyba');</script>";
-			}
-		}
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Inzercia</title>
 
-<head>
-	<title>Blog</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Lukáš Babečka">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta charset="UTF-8">
-	<meta name="author" content="Lukáš Babečka">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="icon" href="resources/favicon.ico" type="image/ico">
+    </head>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<link rel="icon" href="resources/favicon.ico" type="image/ico">
-</head>
+    <body onresize="showNavbar()">
+        <script src="script.js"></script>
 
+        <div id="header">
+            <h1 id="web-title">Inzercia</h1>
 
-<body onresize="showNavbar()">
-	<script src="script.js"></script>
+            <a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span class="fas fa-bars"></span></a>
 
-	<div id="header">
-		<h1 id="web-title">blog</h1>
+            <div id="navbar">
+                <ul>
+                    <?php
+                        include("php/config.php");
 
-		<a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span
-				class="fas fa-bars"></span></a>
+                        session_start();
 
-		<div id="navbar">
-			<ul>
-				<li>
-					<a href="index.php">
-						<span class="fas fa-home"></span>
-						Domov
-					</a>
-				</li>
+                        if (isset($_SESSION["user_mail"]) && $_SESSION["user_active"] == true) {
+                            header("location: index.php");
+                        }
+                        else {
+                    ?>
 
-				<li>
-					<a href="about.php">
-						<span class="fas fa-question"></span>
-						O mne
-					</a>
-				</li>
+                    <li>
+                        <a href="index.php">
+                        <i class="fas fa-home"></i>
+                        Domov
+                        </a>
+                    </li>
 
-				<li>
-					<a href="login.php" id="current-page">
-						<span class="fas fa-user"></span>
-						Účet
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+                    <li>
+                        <a href="login.php" id="current-page">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Prihlásiť sa
+                        </a>
+                    </li>
 
-	<div class="separator"></div>
-	<div id="banner"></div>
+                    <?php 
+                        }
+                    ?>
+                </ul>
+            </div>
+        </div>
 
-	<div id="content">
-		<div id="content-main">
-			<div class="article">
-				<h3 style="text-align: left; padding-left: 30px;">Prihlásenie</h3>
-				<form method="post">
-					<p>E-mail</p>
-					<input name="login-input-mail" placeholder="Váš e-mail" type="email" required>
-					<p>Heslo</p>
-					<input name="login-input-pass" placeholder="Vaše prihlasovacie heslo" type="password" required>
-					<input type="submit" value="Prihlásiť sa" name="submit-login">
+        <div id="wrapper-search">  
+        </div>
+
+        <div id="wrapper-banner">
+            <h3>Autentifikácia</h3>
+        </div>
+
+        <div id="content">
+            <div class="section">
+                <?php
+                    if (isset($_GET["new_user"])) {
+                ?>
+
+                <form action="php/register.php" method="post">
+					<h4>Nový používateľ</h4>
+                    <input name="input-register-fname" type="text" placeholder="Meno" style="float:left" required>
+                    <input name="input-register-lname" type="text" placeholder="Priezvisko" style="float:right" required>
+					<input name="input-register-mail" type="email" placeholder="Váš prihlasovací email" style="width: 100%" required>
+					<input name="input-register-pass" type="password" placeholder="Vaše heslo" style="width: 100%" required>
+                    <input name="input-register-confirm" type="password" placeholder="Overenie hesla" style="width: 100%" required>
+                    <input name="input-register-submit" type="submit" value="Vytvoriť účet">
 				</form>
-			</div>
-		</div>
 
-		<div id="content-side">
-			<section>
-				<h3 style="text-align: left;">Aké výhody prináša registrácia?</h3>
-				<p>• získate prístup ku všetkým článkom, ktoré sa nachádzajú na stránke</p>
-				<p>• odomknete možnosť vyjadriť svoj názor na článok zanechaním komentára</p>
-				<p>• registrácia Vás nič nestojí a trvá to len pár minút, tak do toho!</p>
-				<p><a href="#">Vytvoriť nový účet</a></p>
-			</section>
-		</div>
-	</div>
+                <?php
+                    }
+                    else {
+                ?>
 
-	<div id="footer">
-		<a href="http://www.facebook.com/"><span class="fab fa-facebook"></span></a>
-		<a href="http://www.instagram.com/"><span class="fab fa-instagram"></span></a>
-		<a href="http://www.youtube.com/"><span class="fab fa-youtube"></span></a>
-	</div>
-</body>
+                <form action="php/login.php" method="post">
+					<h4>Vitajte späť</h4>
+					<input name="input-login-mail" type="email" placeholder="Váš prihlasovací email" style="width: 100%" required>
+					<input name="input-login-pass" type="password" placeholder="Vaše heslo" style="width: 100%" required>
+					<a href="?new_user">Nový používateľ</a>
+					<input name="input-login-submit" type="submit" value="Prihlásiť">
+				</form>
 
+                <?php
+                    }
+                ?>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="info">
+                <div class="col">
+                    <h2>Informácie</h2>
+                    <a href="#">Podmienky inzercie</a>
+                    <a href="#">Reklama</a>
+                    <a href="#">Mobilná aplikácia</a>
+                    <a href="#">GDPR</a>
+                </div>
+
+                <div class="col">
+                    <h2>O webstránke</h2>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed neque iaculis, mattis tortor sit amet, laoreet leo. Fusce rutrum, lorem a pharetra cursus, sapien lorem congue arcu, sit amet porta libero lacus nec lacus. Sed tincidunt est ac lorem hendrerit, ut sodales lorem maximus. Ut quis posuere elit
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Napíšte nám</h2>
+                    <form>
+                        <input name="contact-mail" type="email" placeholder="Váš e-mail" required>
+                        <textarea placeholder="Vaša správa"></textarea>
+                        <input type="submit" value="Odoslať">
+                    </form>
+                </div>
+            </div>
+
+            <div id="socials">
+                <a href="http://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="http://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="http://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </body>
 </html>
