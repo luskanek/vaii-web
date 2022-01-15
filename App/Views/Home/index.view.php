@@ -1,8 +1,7 @@
-
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="public/css/index.css">
 
 <div id="wrapper-banner">
-            <h3>Prezerať inzeráty podľa kategórie</h3>
+    <h3>Prezerať inzeráty podľa kategórie</h3>
 </div>
 
 <div id="content">

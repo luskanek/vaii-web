@@ -7,13 +7,13 @@
         <meta name="author" content="Lukáš Babečka">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="public/css/main.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="icon" href="resources/favicon.ico" type="image/ico">
+        <link rel="icon" href="public/resources/favicon.ico" type="image/ico">
     </head>
 
     <body onresize="showNavbar()">
-        <script src="script.js"></script>
+        <script src="public/js/utils.js"></script>
         
         <div id="header">
             <h1 id="web-title">Inzercia</h1>

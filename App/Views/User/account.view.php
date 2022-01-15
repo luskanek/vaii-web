@@ -24,7 +24,7 @@
     }
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/account.css">
+<link rel="stylesheet" type="text/css" href="public/css/account.css">
 
 <div id="wrapper-banner">
     <h3>Účet</h3>

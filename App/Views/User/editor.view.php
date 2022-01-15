@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" href="public/css/editor.css">
+
+<script src="public/js/editor.js"></script>
+
 <div id="wrapper-banner">
     <h3>Nový inzerát</h3>
 </div>

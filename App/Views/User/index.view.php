@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="public/css/auth.css">
 
 <div id="wrapper-banner">
     <h3>Autentifikácia</h3>
