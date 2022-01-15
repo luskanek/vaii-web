@@ -1,3 +1,7 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -22,12 +26,37 @@
 
             <div id="navbar">
                 <ul>
+                    <?php 
+                        if (isset($_SESSION["user"])) 
+                        {
+                    ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="?c=home">Domov</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?c=user">Prihlásiť sa</a>
+                        <a class="nav-link" href="?c=user&a=account">Účet</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?c=user&a=logout">Odhlásiť sa</a>
+                    </li>
+
+                    <?php
+                        }
+                        else
+                        {
+                    ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="?c=home">Domov</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="?c=user">Prihlásiť sa</a>
+                    </li>
+
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
         </div>

@@ -85,13 +85,13 @@ abstract class Model implements \JsonSerializable
      * @param $id
      * @throws \Exception
      */
-    static public function getOne($id)
+    static public function getOne($col, $id)
     {
         if ($id == null) return null;
 
         self::connect();
         try {
-            $sql = "SELECT * FROM " . self::getTableName() . " WHERE " . self::$pkColumn . "=?";
+            $sql = "SELECT * FROM " . self::getTableName() . " WHERE " . $col . "=?";
             $stmt = self::$connection->prepare($sql);
             $stmt->execute([$id]);
             $model = $stmt->fetch();
@@ -103,7 +103,7 @@ abstract class Model implements \JsonSerializable
                 }
                 return $tmpModel;
             } else {
-                throw new \Exception('Record not found!');
+                return NULL;
             }
         } catch (PDOException $e) {
             throw new \Exception('Query failed: ' . $e->getMessage());

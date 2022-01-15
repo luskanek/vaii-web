@@ -64,7 +64,7 @@
 	cursor: pointer;
 }
 
-#content .section form input[type="submit"]:hover
+#content .section form button[type="submit"]:hover
 {
 	background-color: #000000;
 	color: #ffffff;
