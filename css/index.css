@@ -5,6 +5,11 @@
 	gap: 10px;
 }
 
+#content #categories .section
+{
+	cursor: pointer;
+}
+
 #content #items
 {
 	display: none;
