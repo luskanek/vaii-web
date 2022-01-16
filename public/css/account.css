@@ -54,3 +54,8 @@
 {
     float: right;
 }
+
+#content .section .item .icons i
+{
+    padding-right: 10px;
+}

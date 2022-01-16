@@ -1,6 +1,5 @@
-<?php /** @var Users $data */ ?>
 <link rel="stylesheet" type="text/css" href="public/css/account.css">
-<script src="/public/js/ads.js"></script>
+<script src="public/js/ads.js"></script>
 
 <div id="wrapper-banner">
     <h3>Účet</h3>
@@ -10,7 +9,7 @@
     <div class="section">
         <div id="account-details">
             <p>Používateľ</p>
-            <h2><?= $data->name ?></h2>
+            <h2><?= $_SESSION["user"] ?></h2>
         </div>
     </div>
 

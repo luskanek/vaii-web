@@ -119,10 +119,14 @@ class UserController extends AControllerBase
  
         return new ViewResponse("User/account", NULL);
     }
-
-    public function getUserAds()
+    
+    public function getUserItems()
     {
-        $ads = Items::getAll();
-        return $this->json($ads);
+        if (session_status() === PHP_SESSION_NONE) session_start();
+
+        $user = Users::getOne("username", $_SESSION["user"]);
+        
+        $items = Items::getAll("author=?", array($user->id));
+        return $this->json($items);
     }
 }
