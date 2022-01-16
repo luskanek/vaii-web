@@ -32,25 +32,13 @@
             }
         ?>
 
-        <form id="upload-form" action="php/add.php" method="post" enctype="multipart/form-data">
+        <form id="upload-form" action="?c=editor&a=submit" method="post" enctype="multipart/form-data">
             <p id="info-message"></p>
             <label for="input-new-title">Názov inzerátu</label>
             <input name="input-new-title" type="text" maxlength="255" placeholder="Zadajte nádpis inzerátu" value="<?php echo $title ?>" required>
             <label for="select-new-category">Kategória</label>
-            <select name="select-new-category" style="display: block" required>
+            <select id="select-category" name="select-new-category" style="display: block" required>
                 <option value="" selected hidden>Vyberte kategóriu</option>
-                <option value="auto">Auto</option>
-                <option value="furniture">Nábytok</option>
-                <option value="living">Reality</option>
-                <option value="machines">Stroje</option>
-                <option value="phones">Mobily</option>
-                <option value="pc">Počítače</option>
-                <option value="moto">Motocykle</option>
-                <option value="electronics">Elektronika</option>
-                <option value="sports">Šport</option>
-                <option value="clothes">Oblečenie</option>
-                <option value="music">Hudba</option>
-                <option value="literature">Knihy</option>
             </select>
             <label for="input-new-desc">Popis</label>
             <textarea name="input-new-desc" placeholder="Popis inzerátu zadajte sem" required><?php echo $desc ?></textarea>

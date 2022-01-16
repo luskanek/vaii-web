@@ -35,6 +35,9 @@
                         <a class="nav-link" href="?c=home">Domov</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="?c=editor">Nový inzerát</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="?c=user&a=account">Účet</a>
                     </li>
                     <li class="nav-item">

@@ -1,4 +1,17 @@
 window.onload = function() {
+    fetch('?c=home&a=getAllCategories')
+        .then(response => response.json())
+        .then(data => {
+            for (let category of data) {
+                let option = document.createElement("option");
+                option.value = category.id;
+                option.textContent = category.name;
+
+                document.getElementById("select-category").appendChild(option);
+            }
+        }
+    );
+    
     var wrapper = document.getElementById("wrapper-images");
     var input = document.getElementById("input-new-images");
     var x = document.getElementById("info-message");
