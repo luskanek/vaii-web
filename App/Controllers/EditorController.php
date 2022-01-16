@@ -55,8 +55,8 @@ class EditorController extends AControllerBase
         foreach($_FILES["files"]["name"] as $key=>$val) 
         {
             $file_name = basename($_FILES["files"]["name"][$key]);
-            $file_path = $file_name;
-            
+            $file_path = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $file_name;
+
             if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $file_path)) 
             {
                 $files .= $file_name . ";";
