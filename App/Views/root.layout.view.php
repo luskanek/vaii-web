@@ -20,7 +20,7 @@
         <script src="public/js/utils.js"></script>
         
         <div id="header">
-            <h1 id="web-title">Inzercia</h1>
+            <h1 id="web-title"><a href="?c=home">Inzercia</a></h1>
 
             <a href="javascript:void(0);" onclick="showHamburger()" id="hamburger-menu"><span class="fas fa-bars"></span></a>
 
