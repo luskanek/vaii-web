@@ -113,6 +113,7 @@ class UserController extends AControllerBase
         $user->username = $username;
         $user->password = password_hash($pass, PASSWORD_DEFAULT);
         $user->name = $name;
+        $user->phone = $reqv->getValue("input-register-phone");
         $user->save();
 
         $_SESSION["user"] = $username;
@@ -130,13 +131,13 @@ class UserController extends AControllerBase
         return $this->json($items);
     }
 
-    public function getUserName()
+    public function getUserDetails()
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
 
         $reqv = new Request();
         $user = Users::getOne("id", $reqv->getValue("p"));
-        return $this->json($user->name);
+        return $this->json($user);
     }
 
     public function updatePhone()
