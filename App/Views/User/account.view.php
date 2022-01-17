@@ -7,10 +7,8 @@
 
 <div id="content">
     <div class="section">
-        <div id="account-details">
-            <p>Používateľ</p>
-            <h2><?= $_SESSION["user"] ?></h2>
-        </div>
+        <p>Používateľ</p>
+        <h3><?= $_SESSION["user"] ?></h2>
     </div>
 
     <div id="ads" class="section">

@@ -4,7 +4,7 @@ function showHamburger()  {
 
     if (x.style.display === "block") {
         x.style.display = "none";
-        y.style.backgroundColor = "#ffffff";
+        y.style.backgroundColor = "#f5f5f5";
         y.style.color = "#000000";
     }
     else {

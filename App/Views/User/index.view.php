@@ -18,8 +18,8 @@
 			<h4>Vitajte späť</h4>
 			<input name="input-login-mail" type="email" placeholder="Váš prihlasovací email" style="width: 100%" required>
 			<input name="input-login-pass" type="password" placeholder="Vaše heslo" style="width: 100%" required>
-			<a href="?c=user&a=registration">Vytvoriť nový účet</a>
 			<input name="input-login-submit" type="submit" value="Prihlásiť">
+            <a href="?c=user&a=registration">Vytvoriť nový účet</a>
 		</form>
     </div>
 </div>
