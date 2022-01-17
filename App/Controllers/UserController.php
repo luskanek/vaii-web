@@ -129,4 +129,13 @@ class UserController extends AControllerBase
         $items = Items::getAll("author=?", array($user->id));
         return $this->json($items);
     }
+
+    public function getUserName()
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+
+        $reqv = new Request();
+        $user = Users::getOne("id", $reqv->getValue("p"));
+        return $this->json($user->getName());
+    }
 }

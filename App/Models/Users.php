@@ -18,6 +18,11 @@ class Users extends \App\Core\Model
     {
         return "users";
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 
 ?>

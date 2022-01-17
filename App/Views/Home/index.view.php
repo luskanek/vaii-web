@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="public/css/index.css">
-<script src="public/js/categories.js"></script>
+<script src="public/js/index.js"></script>
 
 <div id="wrapper-banner">
     <h3>Prezerať inzeráty podľa kategórie</h3>
