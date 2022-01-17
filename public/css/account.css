@@ -1,7 +1,7 @@
 #content
 {
 	display: grid;
-	grid-template-columns: 40% 60%;
+	grid-template-columns: minmax(200px, min-content) 1fr;
 	gap: 10px;
 }
 
@@ -9,32 +9,10 @@
 {
 	padding: 30px;
 
+    height: fit-content;
+
 	border-radius: 15px;
 	background-color: #ffffff;
-}
-
-#content .section #account-details
-{
-    float: left;
-}
-
-#content .section #link-logout
-{
-    transition: 0.3s;
-
-    float: right;
-    padding: 10px;
-
-    border: 1px solid #333333;
-
-    text-decoration: none;
-    color: #000000;
-}
-
-#content .section #link-logout:hover
-{
-    background-color: #000000;
-    color: #ffffff;
 }
 
 #content .section .item 
@@ -43,11 +21,9 @@
     padding-top: 15px;
 }
 
-#content .section .item a:link, #content .section .item a:visited
+#content .section .item p
 {
     float: left;
-
-    color: #000000;
 }
 
 #content .section .item .icons
@@ -58,22 +34,8 @@
 #content .section .item .icons i
 {
     padding-right: 10px;
-}
 
-@media only screen and (max-width: 1119px) and (min-width: 1024px) 
-{
-	#content #items
-	{
-		column-count: 4;
-	}
-}
-  
-@media only screen and (max-width: 1023px) and (min-width: 768px) 
-{
-	#content #items
-	{
-		column-count: 3;
-	}
+    color: #000000;
 }
   
 @media only screen and (max-width: 767px)

@@ -1,12 +1,14 @@
 #content
 {
-    display: grid;
-    grid-template-columns: 45% 55%;
+    display: block;
 }
 
 #content .section
 {
 	padding: 15px;
+
+	max-width: 500px;
+	height: fit-content;
 
 	background-color: #ffffff;
 	border-radius: 5px;
@@ -40,20 +42,9 @@
 	outline: none;
 }
 
-#content .section form a:link, #content .section form a:visited
-{
-	float: left;
-
-	margin-top: 30px;
-
-	color: #333333;
-}
-
 #content .section form input[type="submit"]
 {
 	transition: 0.3s;
-
-	float: right;
 
 	margin-top: 25px;
 	padding: 10px;
@@ -64,8 +55,25 @@
 	cursor: pointer;
 }
 
-#content .section form button[type="submit"]:hover
+#content .section form input[type="submit"]:hover
 {
 	background-color: #000000;
 	color: #ffffff;
+}
+
+#content .section form a:link, #content .section form a:visited
+{
+	margin-top: 30px;
+	margin-left: 15px;
+
+	color: #333333;
+}
+
+@media only screen and (max-width: 767px)
+{
+	#content .section form input[type="text"]
+	{
+		float: none;
+		width: 100%;
+	}
 }
