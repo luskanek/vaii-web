@@ -39,25 +39,24 @@ function getItems(category) {
             } else {
                 for (let i = 0; i < response.length; i++) {
                     let item = response[i];
-
+                    let phone = "";
                     $.ajax({
                         type: "GET",
-                        url: "?c=user&a=getUserName&p=" + item.author,
+                        url: "?c=user&a=getUserDetails&p=" + item.author,
                         dataType: "json",
                         async: false,
                         success: function(tmp_response) {
-                            item.author = tmp_response;
+                            item.author = tmp_response.name;
+                            phone = tmp_response.phone;
                         }
                     });
 
                     let file = item.files.split(";");
                     let images = "";
-                    if (file.length > 2) {
-                        for (let j = 0; j < file.length - 1; j++) {
-                            images += "<img src='uploads/" + file[j] + "' onclick='showModal(this)'>";
-                        }
+                    for (let j = 0; j < file.length - 1; j++) {
+                        images += "<img src='uploads/" + file[j] + "' onclick='showModal(this)'>";
                     }
-
+                    
                     let html = "<div class='item'>"
                              + "<div class='item-image' style='background-image: url(&quot;uploads/" + file[0] + "&quot;)'></div>"
                              + "<div class='item-images'>"
@@ -66,7 +65,9 @@ function getItems(category) {
                              + "<h3 class='title'>" + item.title + "</h3>"
                              + "<p class='author'>" + item.author + "</p>"
                              + "<p class='desc'>" + item.description + "</p>"
-                             + "<p class='price'>" + item.price + "€</p></div>";
+                             + "<p class='price'>" + item.price + "€</p>"
+                             + "<p class='phone'>" + phone + "</p>"
+                             + "</div>";
                     $("#items").append(html);
                 }
             }

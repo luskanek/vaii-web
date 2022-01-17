@@ -153,15 +153,21 @@
 #content #items .item .desc
 {
 	display: block;
-	padding: 10px 30px 20px 30px;
+	padding: 20px 30px 20px 30px;
 }
 
 #content #items .item .price
 {
-	display: block;
+	float: left;
 	padding: 10px 30px 20px 30px;
 
 	font-weight: bold;
+}
+
+#content #items .item .phone
+{
+	float: right;
+	padding: 10px 30px 20px 30px;
 }
 
 .category-placeholder
@@ -217,5 +223,17 @@
 	#content #items
 	{
 		column-count: 2;
+	}
+
+	#content #items .item .price
+	{
+		float: none;
+		padding: 0px 30px 5px 30px;
+	}
+
+	#content #items .item .phone
+	{
+		float: none;
+		padding: 0px 30px 10px 30px;
 	}
 }

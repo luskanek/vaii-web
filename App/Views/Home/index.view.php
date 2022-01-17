@@ -17,7 +17,7 @@
 
 <div id='loading-category' class="category-placeholder" style="display: none">
     <i class='fas fa-hourglass-end'></i>
-    <h3>Strpenie, hľadám inzeráty..</h3>
+    <h3>Chvíľku strpenia, hľadám inzeráty..</h3>
 </div>
 
 <div id='empty-category' class="category-placeholder" style="display: none">
@@ -26,5 +26,5 @@
 </div>
 
 <div id="modal-container" style="display: none">
-    <img id="image-modal" src="" onclick="hideModal();">
+    <img id="image-modal" src="public/resources/background.png" alt="Modal image" onclick="hideModal();">
 </div>

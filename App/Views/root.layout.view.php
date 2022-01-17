@@ -89,9 +89,9 @@
 
                 <div class="col">
                     <h2>Napíšte nám</h2>
-                    <form>
-                        <input name="contact-mail" type="email" placeholder="Váš e-mail" required>
-                        <textarea placeholder="Vaša správa"></textarea>
+                    <form action="mailto:johndoe@localhost.com" method="post" enctype="text/plain">
+                        <input name="mail" type="email" placeholder="Váš e-mail" required>
+                        <textarea name="comment" placeholder="Vaša správa"></textarea>
                         <input type="submit" value="Odoslať">
                     </form>
                 </div>
