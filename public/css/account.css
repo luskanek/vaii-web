@@ -19,11 +19,21 @@
 {
     clear: both;
     padding-top: 15px;
+
+
 }
 
 #content .section .item p
 {
     float: left;
+    width: 100px;
+    padding-right: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    resize: horizontal;
 }
 
 #content .section .item .icons
