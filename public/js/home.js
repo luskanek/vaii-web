@@ -47,11 +47,35 @@ function getItems(category) {
                         }
                     });
 
-                    let img = item.files.split(";");
-                    let html = "<div class='item'><div class='item-image' style='background-image: url(&quot;uploads/" + img[0] + "&quot;)'></div><h3 class='title'>" + item.title + "</h3><p class='author'>" + item.author + "</p><p class='desc'>" + item.description + "</p><p class='price'>" + item.price + "€</p></div>";
+                    let file = item.files.split(";");
+                    let images = "";
+                    if (file.length > 2) {
+                        for (let j = 0; j < file.length - 1; j++) {
+                            images += "<img src='uploads/" + file[j] + "' onclick='showModal(this)'>";
+                        }
+                    }
+
+                    let html = "<div class='item'>"
+                             + "<div class='item-image' style='background-image: url(&quot;uploads/" + file[0] + "&quot;)'></div>"
+                             + "<div class='item-images'>"
+                             + images
+                             + "</div>"
+                             + "<h3 class='title'>" + item.title + "</h3>"
+                             + "<p class='author'>" + item.author + "</p>"
+                             + "<p class='desc'>" + item.description + "</p>"
+                             + "<p class='price'>" + item.price + "€</p></div>";
                     $("#items").append(html);
                 }
             }
         }
     });
+}
+
+function showModal(element) {
+    $("#image-modal").attr("src", $(element).attr("src"));
+    $("#modal-container").show();
+}
+
+function hideModal() {
+    $("#modal-container").hide();
 }

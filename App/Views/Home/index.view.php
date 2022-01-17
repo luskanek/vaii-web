@@ -11,6 +11,10 @@
     </div>
 
     <div id="items">
-        
+
     </div>
+</div>
+
+<div id="modal-container">
+    <img id="image-modal" src="" onclick="hideModal();">
 </div>
