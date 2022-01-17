@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="public/css/account.css">
-<script src="public/js/ads.js"></script>
+<script src="public/js/user.js"></script>
 
 <div id="wrapper-banner">
     <h3>Účet</h3>

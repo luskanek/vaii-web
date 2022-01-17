@@ -8,8 +8,7 @@ window.onload = function() {
                 html   += "<div class='item'>"
                         + "<p>" + item.title + "</p>"
                         + "<div class='icons'>"
-                        + "<a href=''><i class='fas fa-link'></i></a>" 
-                        + "<a href=''><i class='fas fa-edit'></i></a>" 
+                        + "<a href='?c=editor&p=" + item.id + "'><i class='fas fa-edit'></i></a>" 
                         + "<a href='?c=editor&a=delete&p=" + item.id + "'><i class='fas fa-trash'></i></a>"
                         + "</div>"; 
                         + "</div>";
