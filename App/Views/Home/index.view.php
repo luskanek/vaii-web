@@ -11,10 +11,20 @@
     </div>
 
     <div id="items">
-
+    
     </div>
 </div>
 
-<div id="modal-container">
+<div id='loading-category' class="category-placeholder" style="display: none">
+    <i class='fas fa-hourglass-end'></i>
+    <h3>Strpenie, hľadám inzeráty..</h3>
+</div>
+
+<div id='empty-category' class="category-placeholder" style="display: none">
+    <i class='fas fa-box-open'></i>
+    <h3>Zdá sa, že tu nič nie je..</h3>
+</div>
+
+<div id="modal-container" style="display: none">
     <img id="image-modal" src="" onclick="hideModal();">
 </div>

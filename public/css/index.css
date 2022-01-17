@@ -164,7 +164,7 @@
 	font-weight: bold;
 }
 
-#content #items #empty-category
+.category-placeholder
 {
 	margin: 50px;
 
@@ -173,7 +173,7 @@
 	color: #bbbbbb;
 }
 
-#content #items #empty-category i
+.category-placeholder i
 {
 	padding-top: 20px;
 	padding-bottom: 40px;

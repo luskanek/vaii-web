@@ -1,22 +1,23 @@
 window.onload = function() {
-    fetch('?a=getAllCategories')
+    fetch('?c=home&a=getAllCategories')
         .then(response => response.json())
         .then(data => {
-            document.getElementById("categories").style.display = "grid";
-            document.getElementById("items").style.display = "none";
+            let categories = $("#categories");
+            categories.show();
+            $("#items").hide();
 
             let html = "";
 
             for (let category of data) {
-                html   += "<div class='section' onclick='getItems(" + category.id + ")'>"
-                        + "<i class='" + category.icon + "'></i>"
-                        + "<h3>" + category.name + "</h3>"
-                        + "<p>" + category.description + "</p>"
-                        + "</a>"
-                        + "</div>";
+                html += "<div class='section' onclick='getItems(" + category.id + ")'>"
+                      + "<i class='" + category.icon + "'></i>"
+                      + "<h3>" + category.name + "</h3>"
+                      + "<p>" + category.description + "</p>"
+                      + "</a>"
+                      + "</div>";
             }
 
-            document.getElementById("categories").innerHTML = html;
+            categories.append(html);
         }
     );
 }
@@ -24,15 +25,17 @@ window.onload = function() {
 function getItems(category) {
     $("#categories").hide();
     $("#items").show();
+    $("#loading-category").show();
 
     $.ajax({
         type: "GET",
         url: "?c=home&a=getItemsInCategory&p=" + category,
         dataType: "json",
         success: function(response) {
+            $("#loading-category").hide();
+
             if (response.length == 0) {
-                let html = "<div id='empty-category'><i class='fas fa-box-open'></i><h3>Táto kategória neobsahuje inzeráty..</h3></div>";
-                $("#items").append(html);
+                $("#empty-category").show();
             } else {
                 for (let i = 0; i < response.length; i++) {
                     let item = response[i];
