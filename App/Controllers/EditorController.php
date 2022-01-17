@@ -51,12 +51,12 @@ class EditorController extends AControllerBase
 
         $files = "";
 
-        foreach($_FILES["files"]["name"] as $key=>$val) 
+        for ($i = 0; $i < count($_FILES["files"]["name"]); $i++)
         {
-            $file_name = basename($_FILES["files"]["name"][$key]);
+            $file_name = basename($_FILES["files"]["name"][$i]);
             $file_path = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . $file_name;
 
-            if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $file_path)) 
+            if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], $file_path)) 
             {
                 $files .= $file_name . ";";
             }
@@ -81,7 +81,7 @@ class EditorController extends AControllerBase
         $item->files = $files;
         $item->save();
 
-        return new ViewResponse("User/account", NULL);
+        return new ViewResponse("User/account", $author);
     }   
 
     public function delete()
@@ -91,6 +91,6 @@ class EditorController extends AControllerBase
         $reqv = new Request();
         Items::getOne("id", $reqv->getValue("p"))->delete();
 
-        return new ViewResponse("User/account", NULL);
+        return new ViewResponse("Home/index", NULL);
     }
 }
