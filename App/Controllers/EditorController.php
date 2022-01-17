@@ -49,7 +49,6 @@ class EditorController extends AControllerBase
             return new ViewResponse("Editor/index", NULL);
         }
 
-
         $files = "";
 
         foreach($_FILES["files"]["name"] as $key=>$val) 
@@ -62,8 +61,18 @@ class EditorController extends AControllerBase
                 $files .= $file_name . ";";
             }
         }
-        
-        $item = new Items();
+
+        $item = NULL;
+        $id = $reqv->getValue("input-new-id");
+        if (isset($id) && !empty($id))
+        {
+            $item = Items::getOne("id", $id);
+        }
+        else
+        {
+            $item = new Items(); 
+        }
+
         $item->author = $author->id;
         $item->title = $title;
         $item->category = $category;
@@ -83,5 +92,11 @@ class EditorController extends AControllerBase
         Items::getOne("id", $reqv->getValue("p"))->delete();
 
         return new ViewResponse("User/account", NULL);
+    }
+
+    public function getItem()
+    {
+        $reqv = new Request();
+        return Items::getOne("id", $reqv->getValue("p"))->delete();
     }
 }

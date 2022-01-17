@@ -9,26 +9,20 @@
 <div id="content">
     <div class="section">
         <?php
+            use App\Models\Items;
+
             $title = NULL;
             $desc = NULL;
             $price = NULL;
             $id = NULL;
 
-            if (isset($_GET["id"])) {
-                $id = $_GET["id"];
+            if (isset($_GET["p"])) {
+                $id = $_GET["p"];
+                $item = Items::getOne("id", $id);
 
-                $query = "SELECT * FROM items WHERE id='$id'";
-                $result = mysqli_query($connection, $query);
-                                    
-                if ($result) {
-                    if (mysqli_num_rows($result) == 1) {
-                        $row = mysqli_fetch_assoc($result);
-                                    
-                        $title = $row["title"];
-                        $desc = $row["description"];
-                        $price = $row["price"];
-                    }
-                }
+                $title = $item->title;
+                $desc = $item->description;
+                $price = $item->price;
             }
         ?>
 
