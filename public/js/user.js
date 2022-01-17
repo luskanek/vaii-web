@@ -18,3 +18,32 @@ window.onload = function() {
         }
     );
 }
+
+function updatePhone() {
+    let numb = $("#user-phone");
+    let input = $("#user-input-phone");
+    let edit = $("#user-phone-update");
+    let conf = $("#user-phone-confirm");
+    if (input.is(":visible")) {
+        $.ajax({
+            type: "GET",
+            url: "?c=user&a=updatePhone&u=" + $("#user-id").text() + "&p=" + input.val(),
+            success: function(response) {
+                alert("Vaše telefónne číslo bolo aktualizované!");
+
+                numb.html(input.val());
+                input.hide();
+                conf.hide();
+                numb.show();
+                edit.show();
+            }
+        });
+    } else {
+        numb.hide();
+        edit.hide();
+        conf.show();
+
+        input.val($("#user-phone").text());
+        input.show();
+    }
+}
