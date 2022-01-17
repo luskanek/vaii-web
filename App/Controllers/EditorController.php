@@ -93,10 +93,4 @@ class EditorController extends AControllerBase
 
         return new ViewResponse("User/account", NULL);
     }
-
-    public function getItem()
-    {
-        $reqv = new Request();
-        return Items::getOne("id", $reqv->getValue("p"))->delete();
-    }
 }

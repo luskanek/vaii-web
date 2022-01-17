@@ -44,16 +44,16 @@ class UserController extends AControllerBase
         $reqv = new Request();
 
         $username = $reqv->getValue("input-login-mail");
-        if (Users::getOne("username", $username))
+        $user = Users::getOne("username", $username);
+        if ($user)
         {
             $pass = $reqv->getValue("input-login-pass");
-            $conf = Users::getOne("username", $username);
             
-            if (password_verify($pass, $conf->password)) 
+            if (password_verify($pass, $user->password)) 
             {
                 $_SESSION["user"] = $username;
  
-                return new ViewResponse("User/account", NULL);
+                return new ViewResponse("User/account", $user);
             }
             else 
             {
@@ -117,7 +117,7 @@ class UserController extends AControllerBase
 
         $_SESSION["user"] = $username;
  
-        return new ViewResponse("User/account", NULL);
+        return new ViewResponse("User/account", $user);
     }
     
     public function getUserItems()
@@ -136,6 +136,14 @@ class UserController extends AControllerBase
 
         $reqv = new Request();
         $user = Users::getOne("id", $reqv->getValue("p"));
-        return $this->json($user->getName());
+        return $this->json($user->name);
+    }
+
+    public function updatePhone()
+    {
+        $reqv = new Request();
+        $user = Users::getOne("id", $reqv->getValue("u"));
+        $user->phone = $reqv->getValue("p");
+        $user->save();
     }
 }
