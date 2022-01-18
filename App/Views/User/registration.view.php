@@ -18,7 +18,7 @@
 			<h4>Vytvorenie nového účtu</h4>
             <input name="input-register-fname" type="text" placeholder="Meno" style="float:left" required>
             <input name="input-register-lname" type="text" placeholder="Priezvisko" style="float:right" required>
-            <input name="input-register-phone" type="tel" placeholder="Telefónne číslo (0900 123 456)" pattern="[0-9]{4} [0-9]{3} [0-9]{3}" style="width: 100%" required>
+            <input name="input-register-phone" type="text" placeholder="Telefónne číslo (0900 123 456)" pattern="[0-9]{4} [0-9]{3} [0-9]{3}" style="width: 100%" required>
 			<input name="input-register-mail" type="email" placeholder="Váš prihlasovací email" style="width: 100%" required>
 			<input name="input-register-pass" type="password" placeholder="Vaše heslo" style="width: 100%" required>
             <input name="input-register-conf" type="password" placeholder="Overenie hesla" style="width: 100%" required>
