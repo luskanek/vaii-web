@@ -1,30 +1,31 @@
 function showHamburger()  {
-    var x = document.getElementById("navbar");
-    var y = document.getElementById("hamburger-menu");
+    let nav = $("#navbar");
+    let ham = $("#hamburger-menu");
 
-    if (x.style.display === "block") {
-        x.style.display = "none";
-        y.style.backgroundColor = "#f5f5f5";
-        y.style.color = "#000000";
-    }
-    else {
-        x.style.display = "block";
-        y.style.backgroundColor = "#000000";
-        y.style.color = "#ffffff";
+    if (nav.is(":visible")) {
+        nav.hide();
+        
+        ham.css("background-color", "#f5f5f5");
+        ham.css("color", "#000000");
+    } else {
+        nav.show();
+        
+        ham.css("background-color", "#000000");
+        ham.css("color", "#ffffff");
     }
 }
 
 function showNavbar() {
-    var x = document.getElementById("navbar");
+    let nav = $("#navbar");
 
-    if (x.style.display === "none") {
-        x.style.display = "block";
+    if (nav.not(":visible")) {
+        nav.show();
     }
 }
 
 function displayMessage(text) {
-    var x = document.getElementById("info-message");
+    let msg = $("#info-message");
 
-    x.innerHTML = text;
-    x.style.display = "block";
+    msg.html(text);
+    msg.css("display", "block");
 }

@@ -1,26 +1,33 @@
-window.onload = function() {
-    fetch('?c=home&a=getAllCategories')
-        .then(response => response.json())
-        .then(data => {
-            let categories = $("#categories");
-            categories.show();
-            $("#items").hide();
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "?c=home&a=getAllCategories",
+        dataType: "json",
+        success: function(response) {
+            if (response.length == 0) {
+                $("#empty-category").show();
+            } else {
+                let categories = $("#categories");
+                categories.show();
 
-            let html = "";
+                $("#items").hide();
 
-            for (let category of data) {
-                html += "<div class='section' onclick='getItems(" + category.id + ")'>"
-                      + "<i class='" + category.icon + "'></i>"
-                      + "<h3>" + category.name + "</h3>"
-                      + "<p>" + category.description + "</p>"
-                      + "</a>"
-                      + "</div>";
+                let html = "";
+
+                for (let i = 0; i < response.length; i++) {
+                    html += "<div class='section' onclick='getItems(" + response[i].id + ")'>"
+                          + "<i class='" + response[i].icon + "'></i>"
+                          + "<h3>" + response[i].name + "</h3>"
+                          + "<p>" + response[i].description + "</p>"
+                          + "</a>"
+                          + "</div>";
+                }
+
+                categories.append(html);
             }
-
-            categories.append(html);
         }
-    );
-}
+    })
+});
 
 function getItems(category) {
     $("#categories").hide();

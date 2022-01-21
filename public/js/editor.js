@@ -1,4 +1,4 @@
-window.onload = function() {
+$(document).ready(function() {
     fetch('?c=home&a=getAllCategories')
         .then(response => response.json())
         .then(data => {
@@ -63,4 +63,4 @@ window.onload = function() {
             return true;
         }
     });
-}
+})
