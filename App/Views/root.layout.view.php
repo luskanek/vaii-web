@@ -56,7 +56,7 @@
                         <a class="nav-link" href="?c=home">Domov</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="?c=user">Prihlásiť sa</a>
+                        <a class="nav-link" href="?c=user">Prihlásiť sa</a>
                     </li>
 
                     <?php

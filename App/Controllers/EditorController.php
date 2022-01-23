@@ -25,7 +25,7 @@ class EditorController extends AControllerBase
 
         $reqv = new Request();
 
-        $author = Users::getOne("username", $_SESSION["user"]);
+        $author = Users::getOne("id", $_SESSION["user"]);
         $title = $reqv->getValue("input-new-title");
         $category = $reqv->getValue("select-new-category");
         $description = $reqv->getValue("input-new-desc");

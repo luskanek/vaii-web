@@ -39,7 +39,7 @@ $(document).ready(function() {
                     return false;
                 }
                 
-                if ((input.files.item(i).size / 1024) > 8192) {
+                if ((input.files.item(i).size) > 8388608) {
                     displayMessage("Môžete nahrať len obrázky s veľkosťou do 8MB!");
                     input.value = "";
                     return false;
