@@ -3,7 +3,7 @@ $(document).ready(function() {
         .then(response => response.json())
         .then(data => {
             for (let category of data) {
-                let option = document.createElement("option");
+                var option = document.createElement("option");
                 option.value = category.id;
                 option.textContent = category.name;
 
@@ -11,56 +11,65 @@ $(document).ready(function() {
             }
         }
     );
-    
-    var wrapper = document.getElementById("wrapper-images");
-    var input = document.getElementById("input-new-images");
-    var x = document.getElementById("info-message");
+
+    var wrapp = $("#wrapper-images");
+    var input = $("#input-new-images");
+    var msg = $("#info-message");
     var extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    
+    var uploaded = 0;
+    var up = 0;
 
-    input.addEventListener("change", function(e) {
-        x.style.display = "none";
-        var images = wrapper.getElementsByTagName("img");
+    input.on("change", function(e) {
+        msg.hide();
 
-        while (images.length > 0) {
-            wrapper.removeChild(images[0]);
+        if (up == 1) {
+            if (wrapp.find("img").length > 0) {
+                wrapp.find("img").remove();
+                
+                uploaded = 0;
+            }
+            up = 0;
         }
 
-        if (e.target.files.length > 10) {
+        var uploads = e.target.files;
+
+        if (uploads.length > 10) {
             displayMessage("Môžete nahrať maximálne 10 obrázkov!");
-            input.value = "";
-        }
-        else {
-            var uploads = e.target.files;
+            input.val("");
+            
+        } else {
+            up = 1;
 
             for (let i = 0; i < uploads.length; i++) {
-                if (!extensions.exec(input.value)) {
+                if (!extensions.exec(input.val())) {
                     displayMessage("Môžete nahrať len obrázky!");
-                    input.value = "";
-                    return false;
+                    break;
                 }
                 
-                if ((input.files.item(i).size) > 8388608) {
+                if (uploaded > 8388608) {
                     displayMessage("Môžete nahrať len obrázky s veľkosťou do 8MB!");
-                    input.value = "";
-                    return false;
-                }
-                
+                    break;  
+                } 
+        
                 var file = uploads[i];
 
                 var Reader = new FileReader();
-                Reader.addEventListener("load", function(e) {
+
+                Reader.onload = function(e) {
                     var image = document.createElement("img");
 
                     image.src = e.target.result;
                     image.setAttribute("width", "100px");
                     image.setAttribute("height", "100px");
 
-                    wrapper.appendChild(image);
-                });
+                    wrapp.append(image);
+                };
 
                 Reader.readAsDataURL(file);
+
+                uploaded += input.prop("files")[i].size;
             }
-            return true;
         }
     });
 })
