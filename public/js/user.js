@@ -73,19 +73,25 @@ function updatePhone() {
     let conf = $("#user-phone-confirm");
     
     if (input.is(":visible")) {
-        $.ajax({
-            type: "GET",
-            url: "?c=user&a=updatePhone&u=" + $("#user-id").text() + "&p=" + input.val(),
-            success: function(response) {
-                alert("Vaše telefónne číslo bolo aktualizované!");
+        if (!/^\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$/.test(input.val())) {
+            alert("Zadali ste telefónne číslo v zlom formáte!");
+        
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "?c=user&a=updatePhone&u=" + $("#user-id").text() + "&p=" + input.val(),
+                async: false,
+                success: function(response) {
+                    numb.html(input.val()); 
+                }
+            });
 
-                numb.html(input.val());
-                input.hide();
-                conf.hide();
-                numb.show();
-                edit.show();
-            }
-        });
+            alert("Vaše telefónne číslo bolo aktualizované!");
+            input.hide();
+            conf.hide();
+            numb.show();
+        }
+    
     } else {
         numb.hide();
         edit.hide();

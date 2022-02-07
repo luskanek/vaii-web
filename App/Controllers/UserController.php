@@ -134,7 +134,6 @@ class UserController extends AControllerBase
         return new ViewResponse("User/account", $user);
     }
     
-
     public function getUserDetails()
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
@@ -183,7 +182,7 @@ class UserController extends AControllerBase
 
         if ($author == $target)
         {
-            $_SESSION["error-message"] = "Zadané heslá sa nezhodujú!";
+            echo "<script>alert('Nemôžete zanechať hodnotenie sám sebe!');</script>";
             return new ViewResponse("User/profile", Users::getOne("id", $target));
         }
 
