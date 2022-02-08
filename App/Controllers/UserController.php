@@ -128,7 +128,8 @@ class UserController extends AControllerBase
         $user->name = $name;
         $user->phone = $reqv->getValue("input-register-phone");
         $user->save();
-
+        
+        $user = Users::getOne("username", $username);
         $_SESSION["user"] = $user->id;
 
         return new ViewResponse("User/account", $user);
